@@ -8,7 +8,15 @@ export function middleware(request: NextRequest) {
   if (pathname !== '/' && !pathname.startsWith('/_next') && !pathname.includes('.')) {
     // Extract the path without leading slash
     const numbers = pathname.substring(1)
+    
+    // Try multiple logging methods
     console.log(numbers)
+    console.error(numbers) // Sometimes error logs show up better
+    
+    // Add to response headers for debugging
+    const response = NextResponse.next()
+    response.headers.set('x-logged-path', numbers)
+    return response
   }
   
   return NextResponse.next()
