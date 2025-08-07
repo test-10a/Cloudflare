@@ -29,26 +29,16 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
   
-  // Only log actual page visits
-  const url = request.url
-  const searchParams = request.nextUrl.searchParams.toString()
-  const method = request.method
-  const userAgent = request.headers.get('user-agent') || 'Unknown'
-  const referer = request.headers.get('referer') || 'Direct'
-  const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'Unknown'
-  
-  const logEntry = {
-    timestamp: new Date().toISOString(),
-    method,
-    pathname,
-    searchParams,
-    fullUrl: url,
-    userAgent,
-    referer,
-    ip,
+  // Only log the path value (what's appended to the URL)
+  // Skip logging the homepage itself
+  if (pathname === '/') {
+    return NextResponse.next()
   }
   
-  console.log('[URL_LOGGER]', JSON.stringify(logEntry, null, 2))
+  // Extract just the path without the leading slash
+  const pathValue = pathname.substring(1)
+  
+  console.log('[PATH_LOGGER]', pathValue)
   
   return NextResponse.next()
 }
