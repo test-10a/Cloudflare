@@ -39,6 +39,7 @@ export function middleware(request: NextRequest) {
   const pathValue = pathname.substring(1)
   
   console.log('[PATH_LOGGER]', pathValue)
+  console.log('MIDDLEWARE TEST - PATH DETECTED:', pathValue)
   
   return NextResponse.next()
 }
