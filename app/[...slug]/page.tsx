@@ -6,7 +6,10 @@ export default async function CatchAllPage({
   const resolvedParams = await params
   const path = resolvedParams.slug ? `/${resolvedParams.slug.join('/')}` : '/'
   
-  console.log('URL VISITED:', path)
+  // Only log if it's not favicon or other system files
+  if (!path.includes('favicon') && !path.includes('.ico') && !path.includes('.png')) {
+    console.log('NUMBERS:', path)
+  }
   
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
