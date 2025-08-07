@@ -8,14 +8,6 @@ export default async function CatchAllPage({
   
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Small notification banner showing the logged path */}
-      <div className="bg-green-100 border-b border-green-200 px-4 py-2">
-        <p className="text-sm text-green-800 text-center">
-          ✓ Visit logged: <code className="bg-green-200 px-2 py-1 rounded text-xs">{path}</code>
-        </p>
-      </div>
-      
-      {/* Main ICRA 2026 Content - Same as homepage */}
       <div className="container mx-auto px-4 py-16">
         <header className="text-center mb-16">
           <h1 className="text-6xl font-bold text-blue-900 mb-4">
