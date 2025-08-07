@@ -7,28 +7,78 @@ export default async function CatchAllPage({
   const path = resolvedParams.slug ? `/${resolvedParams.slug.join('/')}` : '/'
   
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center">
-      <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8 text-center">
-          <h1 className="text-4xl font-bold text-blue-900 mb-4">
-            Page Not Found
+    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      {/* Small notification banner showing the logged path */}
+      <div className="bg-green-100 border-b border-green-200 px-4 py-2">
+        <p className="text-sm text-green-800 text-center">
+          ✓ Visit logged: <code className="bg-green-200 px-2 py-1 rounded text-xs">{path}</code>
+        </p>
+      </div>
+      
+      {/* Main ICRA 2026 Content - Same as homepage */}
+      <div className="container mx-auto px-4 py-16">
+        <header className="text-center mb-16">
+          <h1 className="text-6xl font-bold text-blue-900 mb-4">
+            ICRA 2026
           </h1>
-          <p className="text-gray-700 mb-4">
-            The page you're looking for doesn't exist yet.
+          <h2 className="text-2xl text-gray-700 mb-2">
+            International Conference on Robotics and Automation
+          </h2>
+          <p className="text-xl text-gray-600">
+            May 25-29, 2026 | Location TBD
           </p>
-          <p className="text-sm text-gray-500 mb-6">
-            Requested path: <code className="bg-gray-100 px-2 py-1 rounded">{path}</code>
-          </p>
-          <p className="text-sm text-gray-400 mb-6">
-            This request has been logged for analysis.
-          </p>
-          <a 
-            href="/"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Return to Homepage
-          </a>
-        </div>
+        </header>
+
+        <section className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <h3 className="text-3xl font-semibold text-blue-800 mb-4">
+              Welcome to ICRA 2026
+            </h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              The International Conference on Robotics and Automation (ICRA) is the IEEE Robotics and 
+              Automation Society's flagship conference and the premier international forum for robotics researchers 
+              to present and discuss their work.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              ICRA 2026 will bring together the world's top researchers and most important companies to share 
+              ideas and advances in our field. The conference will feature plenary talks, contributed paper 
+              presentations, workshops, tutorials, exhibitions, and robot competitions.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h4 className="text-xl font-semibold text-blue-700 mb-3">Important Dates</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li>Paper Submission Deadline: TBD</li>
+                <li>Notification of Acceptance: TBD</li>
+                <li>Camera Ready Deadline: TBD</li>
+                <li>Conference Dates: May 25-29, 2026</li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h4 className="text-xl font-semibold text-blue-700 mb-3">Conference Topics</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li>Robot Manipulation and Grasping</li>
+                <li>Machine Learning for Robotics</li>
+                <li>Human-Robot Interaction</li>
+                <li>Autonomous Navigation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-blue-900 text-white rounded-lg shadow-lg p-8 mt-8 text-center">
+            <h3 className="text-2xl font-semibold mb-4">Stay Updated</h3>
+            <p className="mb-4">
+              More information will be available soon. Check back regularly for updates on paper submission, 
+              registration, and conference program.
+            </p>
+            <p className="text-blue-200">
+              Contact: info@icra2026.org
+            </p>
+          </div>
+        </section>
       </div>
     </main>
   )
