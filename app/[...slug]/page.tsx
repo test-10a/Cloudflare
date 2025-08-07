@@ -1,5 +1,10 @@
-export default function CatchAllPage({ params }: { params: { slug: string[] } }) {
-  const path = params.slug ? `/${params.slug.join('/')}` : '/'
+export default async function CatchAllPage({ 
+  params 
+}: { 
+  params: Promise<{ slug: string[] }> 
+}) {
+  const resolvedParams = await params
+  const path = resolvedParams.slug ? `/${resolvedParams.slug.join('/')}` : '/'
   
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center">

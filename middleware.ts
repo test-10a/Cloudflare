@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
   const method = request.method
   const userAgent = request.headers.get('user-agent') || 'Unknown'
   const referer = request.headers.get('referer') || 'Direct'
-  const ip = request.ip || request.headers.get('x-forwarded-for') || 'Unknown'
+  const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'Unknown'
   
   const logEntry = {
     timestamp: new Date().toISOString(),
